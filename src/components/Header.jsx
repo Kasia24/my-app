@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBars,
   faSearch,
   faUser,
   faShoppingCart,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import "./App.css"; // Upewnij się, że masz stylowanie
+import "../App.css"; // Upewnij się, że masz stylowanie
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -24,7 +24,6 @@ const Header = () => {
 
       {/* Ikony */}
       <div className="icons">
-        <FontAwesomeIcon icon={faBars} className="icon" />
         <FontAwesomeIcon
           icon={faSearch}
           className="icon"
@@ -32,6 +31,7 @@ const Header = () => {
         />
         <FontAwesomeIcon icon={faUser} className="icon" />
         <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+        <FontAwesomeIcon icon={faBars} className="icon" />
       </div>
 
       {/* Pole wyszukiwania */}
