@@ -103,3 +103,39 @@ body {
 .login-button:hover {
   background-color: #28a428;
 }
+
+.register-switch {
+  background: none;
+  border: none;
+  color: #28a428;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+  margin-top: -5px;
+  padding: 0;
+}
+
+.user-info {
+  position: absolute;
+  top: 20px;
+  right: 160px;
+  color: #ccc;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-button {
+  background-color: #444;
+  color: #ccc;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.logout-button:hover {
+  background-color: #28a428;
+}

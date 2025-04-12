@@ -86,7 +86,6 @@ const Header = () => {
       </div>
 
       <div className="icons">
-        <FontAwesomeIcon icon={faBars} className="icon" />
         <FontAwesomeIcon
           icon={faSearch}
           className="icon"
@@ -94,6 +93,7 @@ const Header = () => {
         />
         <FontAwesomeIcon icon={faUser} className="icon" onClick={toggleLogin} />
         <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+        <FontAwesomeIcon icon={faBars} className="icon" />
       </div>
 
       {/* Komponenty po kliknięciu */}
