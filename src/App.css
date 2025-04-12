@@ -45,4 +45,5 @@ body {
 
 .icon:hover {
   color: #32cd32; /* Zielony kolor ikon przy najechaniu */
+  cursor: pointer;
 }
