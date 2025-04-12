@@ -161,7 +161,7 @@ const Header = () => {
       {user && (
         <div className="user-info">
           <span>
-            Zalogowany jako: <strong>{user.email}</strong>
+            Cześć, <strong>{user.email}</strong>
           </span>
           <button className="logout-button" onClick={handleLogout}>
             Wyloguj się
