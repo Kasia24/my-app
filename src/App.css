@@ -47,3 +47,22 @@ body {
   color: #32cd32; /* Zielony kolor ikon przy najechaniu */
   cursor: pointer;
 }
+
+.search-box {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+  z-index: 999;
+}
+
+.search-input {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
