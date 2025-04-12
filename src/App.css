@@ -29,6 +29,7 @@ body {
   color: #32cd32; /* Zielony kolor logo */
   font-size: 24px;
   font-weight: bold;
+  margin: 0;
 }
 
 .icons {
