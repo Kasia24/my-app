@@ -118,7 +118,7 @@ body {
 .user-info {
   position: absolute;
   top: 70px;
-  right: 250px;
+  right: 90px;
   color: #ccc;
   font-size: 14px;
   display: flex;
