@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css"; // Używamy tutaj pliku CSS
+import "./App.css"; // Używamy tutaj pliku CSS
 import HomePage from "./pages/HomePage";
 
 function App() {
