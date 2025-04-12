@@ -50,13 +50,13 @@ body {
 
 .search-box {
   position: absolute;
-  top: 80px;
-  right: 20px;
-  background-color: #111;
+  top: 60px;
+  right: 50px;
+  background-color: black;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 0 10px #000;
-  z-index: 999;
+  box-shadow: 0 0 10px #32cd32;
+  z-index: 500;
 }
 
 .search-input {
