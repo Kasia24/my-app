@@ -17,10 +17,10 @@ const Header = () => {
 
       {/* Ikony */}
       <div className="icons">
-        <FontAwesomeIcon icon={faBars} className="icon" />
         <FontAwesomeIcon icon={faSearch} className="icon" />
         <FontAwesomeIcon icon={faUser} className="icon" />
         <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+        <FontAwesomeIcon icon={faBars} className="icon" />
       </div>
     </header>
   );
