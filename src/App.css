@@ -32,6 +32,7 @@ body {
   margin: 0;
   cursor: pointer;
   transition: color var(--transition-default);
+  text-decoration: none;
 }
 
 .icons {
