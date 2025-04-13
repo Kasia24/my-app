@@ -7,7 +7,6 @@ import {
   faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -109,9 +108,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/" className="logo-text">
-          Greenlandia{" "}
-        </Link>
+        <a href="/" className="logo-text">
+          Greenlandia
+        </a>
       </div>
 
       <div className="icons">
