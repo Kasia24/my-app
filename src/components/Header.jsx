@@ -108,7 +108,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <span className="logo-text">Greenlandia</span>
+        <Link to="/" className="logo-text">
+          Greenlandia
+        </Link>
       </div>
 
       <div className="icons">
