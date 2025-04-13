@@ -12,12 +12,12 @@ const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
+  const [showMenu, setShowMenu] = useState(false); // Nowy stan menu
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null); // aktualnie zalogowany
+  const [user, setUser] = useState(null);
 
-  // Załaduj użytkownika z localStorage po załadowaniu komponentu
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
@@ -29,18 +29,28 @@ const Header = () => {
     setShowSearch((prev) => !prev);
     setShowLogin(false);
     setShowRegister(false);
+    setShowMenu(false);
   };
 
   const toggleLogin = () => {
     setShowLogin((prev) => !prev);
     setShowSearch(false);
     setShowRegister(false);
+    setShowMenu(false);
   };
 
   const toggleRegister = () => {
     setShowRegister((prev) => !prev);
     setShowSearch(false);
     setShowLogin(false);
+    setShowMenu(false);
+  };
+
+  const toggleMenu = () => {
+    setShowMenu((prev) => !prev);
+    setShowSearch(false);
+    setShowLogin(false);
+    setShowRegister(false);
   };
 
   const handleLogin = () => {
@@ -93,10 +103,30 @@ const Header = () => {
         />
         <FontAwesomeIcon icon={faUser} className="icon" onClick={toggleLogin} />
         <FontAwesomeIcon icon={faShoppingCart} className="icon" />
-        <FontAwesomeIcon icon={faBars} className="icon" />
+        <FontAwesomeIcon icon={faBars} className="icon" onClick={toggleMenu} />
       </div>
 
-      {/* Komponenty po kliknięciu */}
+      {/* Rozwijane menu */}
+      {showMenu && (
+        <nav className="dropdown-menu">
+          <ul>
+            <li>
+              <a href="/">Strona główna</a>
+            </li>
+            <li>
+              <a href="/shop">Sklep</a>
+            </li>
+            <li>
+              <a href="/about">O nas</a>
+            </li>
+            <li>
+              <a href="/contact">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
+      )}
+
+      {/* Wyszukiwarka */}
       {showSearch && (
         <div className="search-box">
           <input
@@ -107,6 +137,7 @@ const Header = () => {
         </div>
       )}
 
+      {/* Logowanie */}
       {showLogin && (
         <div className="login-box">
           <input
@@ -132,6 +163,7 @@ const Header = () => {
         </div>
       )}
 
+      {/* Rejestracja */}
       {showRegister && (
         <div className="login-box">
           <input
