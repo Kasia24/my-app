@@ -158,7 +158,6 @@ body {
   transform: translateY(-10px);
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
 }
 
 .dropdown-menu.show {
@@ -175,6 +174,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.2s, color 0.2s;
+  list-style: none;
 }
 
 .dropdown-menu a:hover {
