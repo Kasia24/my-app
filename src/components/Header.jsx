@@ -109,7 +109,7 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <Link to="/" className="logo-text">
-          Greenlandia
+          Greenlandia{" "}
         </Link>
       </div>
 
