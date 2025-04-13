@@ -38,14 +38,14 @@
 .product-price {
   font-size: 18px;
   font-weight: bold;
-  color: #e63946;
+  color: #32cd32;
   margin-bottom: 15px;
 }
 
 .add-to-cart {
   padding: 10px 20px;
-  background-color: #1d3557;
-  color: #fff;
+  background-color: #32cd32;
+  color: #000;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -54,5 +54,5 @@
 }
 
 .add-to-cart:hover {
-  background-color: #457b9d;
+  background-color: #28a428;
 }
