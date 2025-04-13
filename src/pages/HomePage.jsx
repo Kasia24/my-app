@@ -1,21 +1,20 @@
-import React, { useState } from "react"; // importujemy useState
+import React, { useState } from "react";
 import Header from "../components/Header";
 import ImageSlider from "../components/ImageSlider";
 import ProductCard from "../components/ProductCard";
 
 const HomePage = () => {
   const [cart, setCart] = useState([]);
-  const [showCart, setShowCart] = useState(false); // Stan do zarządzania widocznością koszyka
+  const [showCart, setShowCart] = useState(false); // Stan kontrolujący widoczność koszyka
 
   // Funkcja dodająca produkt do koszyka
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-    alert(`Dodano "${product.title}" do koszyka!`);
   };
 
-  // Funkcja do przełączania widoczności koszyka
-  const toggleCartVisibility = () => {
-    setShowCart(!showCart);
+  // Funkcja wyświetlająca koszyk
+  const handleCartClick = () => {
+    setShowCart((prevShowCart) => !prevShowCart); // Zmiana stanu widoczności koszyka
   };
 
   const products = [
@@ -31,22 +30,24 @@ const HomePage = () => {
       image: "./images/Fr_Lawenda.jpg",
       title: "Francuska lawenda",
       description: "Naturalny płyn uniwersalny Francuska lawenda",
-      price: "19,99",
+      price: "19.99",
     },
     {
       id: 3,
       image: "./images/Wind.jpg",
       title: "Wind",
       description: "Naturalny balsam do ciała Wind odprężenie",
-      price: "12,99",
+      price: "12.99",
     },
   ];
 
   return (
     <div className="home-page">
-      <Header cartCount={cart.length} />{" "}
-      {/* Przekazujemy liczbę produktów w koszyku */}
+      {/* Przekazujemy liczbę produktów w koszyku i funkcję otwierającą koszyk */}
+      <Header cartCount={cart.length} onCartClick={handleCartClick} />
       <ImageSlider />
+
+      {/* Wyświetlanie produktów */}
       <div className="product-list">
         {products.map((product) => (
           <ProductCard
@@ -55,10 +56,31 @@ const HomePage = () => {
             title={product.title}
             description={product.description}
             price={product.price}
-            onAddToCart={() => handleAddToCart(product)} // Przekazujemy produkt do funkcji
+            onAddToCart={() => handleAddToCart(product)} // Dodanie produktu do koszyka
           />
         ))}
       </div>
+
+      {/* Jeśli koszyk jest widoczny, wyświetlamy zawartość koszyka */}
+      {showCart && (
+        <div className="cart">
+          <h2>Zawartość koszyka</h2>
+          {cart.length === 0 ? (
+            <p>Twój koszyk jest pusty.</p>
+          ) : (
+            <ul>
+              {cart.map((product, index) => (
+                <li key={index}>
+                  <img src={product.image} alt={product.title} width="50" />
+                  <span>
+                    {product.title} - {product.price} PLN
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
 };
