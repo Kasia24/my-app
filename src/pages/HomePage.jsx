@@ -3,6 +3,14 @@ import Header from "../components/Header";
 import ImageSlider from "../components/ImageSlider";
 import ProductCard from "../components/ProductCard";
 
+const HomePage = () => {
+  const [cart, setCart] = useState([]);
+
+  // Funkcja dodająca produkt do koszyka
+  const handleAddToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+  };
+
 const products = [
   {
     id: 1,
@@ -34,7 +42,8 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      <Header />
+      <Header cartCount={cart.length} />{" "}
+      {/* Przekazujemy liczbę produktów w koszyku */}
       <ImageSlider />
       <div className="product-list">
         {products.map((product) => (

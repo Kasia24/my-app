@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
-const Header = () => {
+const Header = ({ cartCount }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
@@ -120,7 +120,12 @@ const Header = () => {
           onClick={toggleSearch}
         />
         <FontAwesomeIcon icon={faUser} className="icon" onClick={toggleLogin} />
-        <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+
+        <div className="icon cart-icon-wrapper">
+          <FontAwesomeIcon icon={faShoppingCart} />
+          {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+        </div>
+
         <FontAwesomeIcon icon={faBars} className="icon" onClick={toggleMenu} />
       </div>
 
