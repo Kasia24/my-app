@@ -12,7 +12,7 @@ const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
-  const [showMenu, setShowMenu] = useState(false); // Nowy stan menu
+  const [showMenu, setShowMenu] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -89,6 +89,22 @@ const Header = () => {
     localStorage.removeItem("user");
   };
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      const menu = document.querySelector(".dropdown-menu");
+      const icon = e.target.closest(".fa-bars");
+
+      if (menu && !menu.contains(e.target) && !icon) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <header className="header">
       <div className="logo">
@@ -106,27 +122,6 @@ const Header = () => {
         <FontAwesomeIcon icon={faBars} className="icon" onClick={toggleMenu} />
       </div>
 
-      {/* Rozwijane menu */}
-      {showMenu && (
-        <nav className="dropdown-menu">
-          <ul>
-            <li>
-              <a href="/">Strona główna</a>
-            </li>
-            <li>
-              <a href="/shop">Sklep</a>
-            </li>
-            <li>
-              <a href="/about">O nas</a>
-            </li>
-            <li>
-              <a href="/contact">Kontakt</a>
-            </li>
-          </ul>
-        </nav>
-      )}
-
-      {/* Wyszukiwarka */}
       {showSearch && (
         <div className="search-box">
           <input
@@ -137,7 +132,6 @@ const Header = () => {
         </div>
       )}
 
-      {/* Logowanie */}
       {showLogin && (
         <div className="login-box">
           <input
@@ -163,7 +157,6 @@ const Header = () => {
         </div>
       )}
 
-      {/* Rejestracja */}
       {showRegister && (
         <div className="login-box">
           <input
@@ -189,7 +182,6 @@ const Header = () => {
         </div>
       )}
 
-      {/* Informacja o użytkowniku */}
       {user && (
         <div className="user-info">
           <span>
@@ -200,6 +192,23 @@ const Header = () => {
           </button>
         </div>
       )}
+
+      <nav className={`dropdown-menu ${showMenu ? "show" : ""}`}>
+        <ul>
+          <li>
+            <a href="/">Strona główna</a>
+          </li>
+          <li>
+            <a href="/shop">Sklep</a>
+          </li>
+          <li>
+            <a href="/about">O nas</a>
+          </li>
+          <li>
+            <a href="/contact">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };
