@@ -4,12 +4,18 @@ import ImageSlider from "../components/ImageSlider";
 import ProductCard from "../components/ProductCard";
 
 const HomePage = () => {
-  const [cart, setCart] = useState([]); // stan przechowujący produkty w koszyku
+  const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false); // Stan do zarządzania widocznością koszyka
 
   // Funkcja dodająca produkt do koszyka
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
     alert(`Dodano "${product.title}" do koszyka!`);
+  };
+
+  // Funkcja do przełączania widoczności koszyka
+  const toggleCartVisibility = () => {
+    setShowCart(!showCart);
   };
 
   const products = [

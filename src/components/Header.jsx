@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
-const Header = ({ cartCount }) => {
+const Header = ({ cartCount, onCartClick }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
@@ -121,7 +121,8 @@ const Header = ({ cartCount }) => {
         />
         <FontAwesomeIcon icon={faUser} className="icon" onClick={toggleLogin} />
 
-        <div className="icon cart-icon-wrapper">
+        {/* Koszyk - Ikonka */}
+        <div className="icon cart-icon-wrapper" onClick={onCartClick}>
           <FontAwesomeIcon icon={faShoppingCart} />
           {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
         </div>
@@ -129,6 +130,7 @@ const Header = ({ cartCount }) => {
         <FontAwesomeIcon icon={faBars} className="icon" onClick={toggleMenu} />
       </div>
 
+      {/* Okno wyszukiwania */}
       {showSearch && (
         <div className="search-box">
           <input
@@ -139,6 +141,7 @@ const Header = ({ cartCount }) => {
         </div>
       )}
 
+      {/* Okno logowania */}
       {showLogin && (
         <div className="login-box">
           <input
@@ -164,6 +167,7 @@ const Header = ({ cartCount }) => {
         </div>
       )}
 
+      {/* Okno rejestracji */}
       {showRegister && (
         <div className="login-box">
           <input
@@ -189,6 +193,7 @@ const Header = ({ cartCount }) => {
         </div>
       )}
 
+      {/* Informacje o użytkowniku */}
       {user && (
         <div className="user-info">
           <span>
@@ -200,6 +205,7 @@ const Header = ({ cartCount }) => {
         </div>
       )}
 
+      {/* Menu */}
       <nav className={`dropdown-menu ${showMenu ? "show" : ""}`}>
         <ul>
           <li>
